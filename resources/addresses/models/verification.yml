@@ -1,0 +1,154 @@
+type: object
+
+required:
+  - id
+  - address_line1
+  - address_country
+  - date_created
+  - date_modified
+  - deleted
+  - metadata
+  - object
+
+properties:
+  id:
+    $ref: '../attributes/adr_id.yml#/id'
+
+  recipient:
+    type: string
+    description: >
+      The intended recipient tied to this address
+    maxLength: 40
+    nullable: true
+    example: HARRY ZHANG
+
+  primary_line:
+    type: string
+    description: >
+      Contains a combination of any applicable fields from the
+      following list: primary number, street predirection,
+      street name, street suffix, street postdirection,
+      secondary designator, secondary number, pmb
+      designator, pmb number
+    maxLength: 200
+    nullable: false
+    example: 185 BERRY ST STE 6100
+
+  secondary_line:
+    type: string
+    description: >
+      Secondary delivery line. Usually left empty, but
+      can contain any secondary unit information which
+      cannot fit into the primary line.
+    maxLength: 200
+    nullable: true
+    example: APT 54
+
+  urbanization:
+    type: string
+    description: >
+      An area or sector within a Puerto Rican city (not
+      applicable to anywhere outside of PR)
+    maxLength: 200
+    nullable: true
+    example: URB HIGHLAND GDNS
+
+  last_line:
+    type: string
+    description: >
+      Contains a combination of any applicable fields from the
+      following list: city, state, zip code, zip+4
+    maxLength: 200
+    nullable: true
+    example: SAN FRANCISCO CA 94107-1729
+
+  deliverability:
+    type: string
+    description: >
+      Deliverability summary of us_verification response object.
+      Could be deliverable, deliverable_unnecessary_unit, 
+      deliverable_incorrect_unit, deliverable_missing_unit, or
+      undeliverable.
+    example: undeliverable
+
+  components:
+    type: object
+    description: >
+      Breakdown of important address components
+    properties: 
+      primary_number:
+        type: string
+        example: '360'
+      street_predirection:
+        type: string
+        example: 'SE'
+      street_name:
+        type: string
+        example: 'BERRY'
+      street_suffix:
+        type: string
+        example: 'AVE'
+      street_postdirection:
+        type: string
+        example: 'N'
+      secondary_designator:
+        type: string
+        example: 'APT'
+      secondary_number:
+        type: string
+        example: '329'
+      pmb_designator:
+        type: string
+        example: 'PMB'
+      pmb_number:
+        type: string
+        example: '234'
+      extra_secondary_designator:
+        type: string
+        example: 'STE'
+      extra_secondary_number:
+        type: string
+        example: '24'
+      city:
+        type: string
+        example: 'SAN FRANCISCO'
+      state:
+        type: string
+        example: 'CA'
+      zip_code:
+        type: string
+        example: '94107'
+      zip_code_plus_4:
+        type: string
+        example: '1729'
+      zip_code_type:
+        type: string
+        example: 'standard'
+      delivery_point_barcode:
+        type: string
+        example: '152192702993'
+      address_type:
+        type: string
+        example: 'residential'
+
+  date_created:
+    type: string
+    format: date-time
+    description: A timestamp in ISO 8601 format of the date the address was created.
+    example: "2017-09-05T17:47:53.767Z"
+
+  date_modified:
+    type: string
+    format: date-time
+    description: A timestamp in ISO 8601 format of the date the address was last modified.
+    example: "2017-09-05T17:47:53.767Z"
+
+  deleted:
+    type: boolean
+    description: Only returned if the address has been successfully deleted.
+    example: false
+
+  object:
+    type: string
+    description: Value is <code>address</code>.
+    example: address
