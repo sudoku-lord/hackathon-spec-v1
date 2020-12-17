@@ -109,16 +109,10 @@ properties:
     example: US
 
   date_created:
-    type: string
-    format: date-time
-    description: A timestamp in ISO 8601 format of the date the address was created.
-    example: "2017-09-05T17:47:53.767Z"
+    $ref: '../../shared/attributes/timestamps.yml#date_created'
 
   date_modified:
-    type: string
-    format: date-time
-    description: A timestamp in ISO 8601 format of the date the address was last modified.
-    example: "2017-09-05T17:47:53.767Z"
+    $ref: '../../shared/attributes/timestamps.yml#date_modified'
 
   recipient_moved:
     type: boolean
