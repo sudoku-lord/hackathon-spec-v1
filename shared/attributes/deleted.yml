@@ -1,5 +1,5 @@
 deleted:
   type: boolean
   description: Only returned if the address has been successfully deleted.
-  read-only: true
+  readOnly: true
   example: false

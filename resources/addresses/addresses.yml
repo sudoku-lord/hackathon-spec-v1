@@ -16,24 +16,3 @@ get:
   responses:
     '200':
       $ref: responses/all_addresses.yml
-
-post:
-  operationId: create_address
-
-  summary: Creates a new address object
-
-  description: >-
-    Creates a new address given information 
-
-  tags:
-    - Addresses
-
-  requestBody:
-    required: true
-    content:
-      application/json:
-        
-
-  responses:
-    '200':
-      $ref: responses/address.yml

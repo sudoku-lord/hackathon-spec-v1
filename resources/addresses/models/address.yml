@@ -6,7 +6,11 @@ required:
 
 properties:
   id:
-    $ref: '../attributes/adr_id.yml#/id'
+    type: string
+    description: Unique identifier prefixed with <code>adr_</code>.
+    pattern: '^adr_[a-zA-Z0-9]+$'
+    readOnly: true
+    example: adr_fa85158b26c3eb7c
 
   description:
     type: string
@@ -108,11 +112,8 @@ properties:
     minLength: 2
     example: US
 
-  date_created:
-    $ref: '../../shared/attributes/timestamps.yml#date_created'
-
-  date_modified:
-    $ref: '../../shared/attributes/timestamps.yml#date_modified'
+  metadata:
+    $ref: '../../../shared/attributes/metadata.yml#/metadata'
 
   recipient_moved:
     type: boolean
@@ -127,5 +128,14 @@ properties:
       non-deliverable US addresses, or for addresses created before the NCOA
       feature was added to your account.
     nullable: true
-    read-only: true
+    readOnly: true
     example: false
+
+  deleted:
+    $ref: '../../../shared/attributes/deleted.yml#/deleted'
+
+  date_created:
+    $ref: '../../../shared/attributes/timestamps.yml#/date_created'
+
+  date_modified:
+    $ref: '../../../shared/attributes/timestamps.yml#/date_modified'

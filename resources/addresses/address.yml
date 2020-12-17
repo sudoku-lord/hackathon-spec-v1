@@ -1,3 +1,11 @@
+parameters:
+  - in: path
+    name: id
+    required: true
+    description: ID of address to operate upon
+    schema:
+      $ref: 'attributes/adr_id.yml'
+
 get:
   operationId: get_address
 
@@ -9,14 +17,6 @@ get:
 
   tags:
     - Addresses
-
-  parameters:
-    - in: path
-      name: id
-      description: id of the address to retrieve
-      required: true
-      schema:
-        $ref: 'attributes/adr_id.yml#/id'
 
   responses:
     '200':
@@ -33,13 +33,6 @@ delete:
 
   tags:
     - Addresses
-
-  parameters:
-    - in: path
-      name: id
-      required: true
-      schema:
-        $ref: 'attributes/adr_id.yml#/id'
 
   responses:
     '200':
