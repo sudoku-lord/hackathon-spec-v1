@@ -3,12 +3,6 @@ type: object
 required:
   - id
   - address_line1
-  - address_country
-  - date_created
-  - date_modified
-  - deleted
-  - metadata
-  - object
 
 properties:
   id:
@@ -114,6 +108,18 @@ properties:
     minLength: 2
     example: US
 
+  date_created:
+    type: string
+    format: date-time
+    description: A timestamp in ISO 8601 format of the date the address was created.
+    example: "2017-09-05T17:47:53.767Z"
+
+  date_modified:
+    type: string
+    format: date-time
+    description: A timestamp in ISO 8601 format of the date the address was last modified.
+    example: "2017-09-05T17:47:53.767Z"
+
   recipient_moved:
     type: boolean
     description: >
@@ -127,31 +133,5 @@ properties:
       non-deliverable US addresses, or for addresses created before the NCOA
       feature was added to your account.
     nullable: true
+    read-only: true
     example: false
-
-  metadata:
-    type: object
-    description: Metadata
-    properties: {}
-
-  date_created:
-    type: string
-    format: date-time
-    description: A timestamp in ISO 8601 format of the date the address was created.
-    example: "2017-09-05T17:47:53.767Z"
-
-  date_modified:
-    type: string
-    format: date-time
-    description: A timestamp in ISO 8601 format of the date the address was last modified.
-    example: "2017-09-05T17:47:53.767Z"
-
-  deleted:
-    type: boolean
-    description: Only returned if the address has been successfully deleted.
-    example: false
-
-  object:
-    type: string
-    description: Value is <code>address</code>.
-    example: address
